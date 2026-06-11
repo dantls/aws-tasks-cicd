@@ -6,7 +6,6 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Tasks from "./components/Tasks.jsx";
 import AddTask from "./components/AddTask.jsx";
-import About from "./components/About.jsx";
 import DebugLogs from "./components/DebugLogs.jsx";
 
 const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8080";
@@ -16,7 +15,7 @@ function AppContent() {
   const { logApiRequest, logApiResponse, logApiError, addLog } = useLog();
 
   useEffect(() => {
-    addLog('INFO', 'Aplicação iniciada', `API URL configurada: ${apiUrl}`);
+    addLog('INFO', 'Application started', `API URL configured: ${apiUrl}`);
     getTasks();
   }, []);
 
@@ -25,7 +24,7 @@ function AppContent() {
       const tasksFromServer = await fetchTasks();
       setTasks(tasksFromServer);
     } catch (error) {
-      addLog('ERROR', 'Falha ao carregar tarefas', error.message);
+      addLog('ERROR', 'Failed to load tasks', error.message);
     }
   };
 
@@ -107,9 +106,9 @@ function AppContent() {
         )
       );
       
-      addLog('SUCCESS', 'Prioridade alterada', `Tarefa ${uuid} - Importante: ${data.importante}`);
+      addLog('SUCCESS', 'Priority updated', `Task ${uuid} - Important: ${data.importante}`);
     } catch (error) {
-      addLog('ERROR', 'Falha ao alterar prioridade', error.message);
+      addLog('ERROR', 'Failed to update priority', error.message);
     }
   };
 
@@ -136,10 +135,10 @@ function AppContent() {
       }
       
       setTasks([...tasks, data]);
-      addLog('SUCCESS', 'Tarefa criada', `"${task.titulo}" adicionada com sucesso`);
+      addLog('SUCCESS', 'Task created', `"${task.titulo}" added successfully`);
     } catch (error) {
       logApiError('POST', url, error);
-      addLog('ERROR', 'Falha ao criar tarefa', error.message);
+      addLog('ERROR', 'Failed to create task', error.message);
     }
   };
 
@@ -160,10 +159,10 @@ function AppContent() {
       }
       
       setTasks(tasks.filter((task) => task.uuid !== uuid));
-      addLog('SUCCESS', 'Tarefa removida', `Tarefa ${uuid} excluída com sucesso`);
+      addLog('SUCCESS', 'Task deleted', `Task ${uuid} removed successfully`);
     } catch (error) {
       logApiError('DELETE', url, error);
-      addLog('ERROR', 'Falha ao excluir tarefa', error.message);
+      addLog('ERROR', 'Failed to delete task', error.message);
     }
   };
 
@@ -179,8 +178,8 @@ function AppContent() {
         />
       ) : (
         <div className="empty-state">
-          <h3>Nenhuma tarefa por aqui 📝</h3>
-          <p>Adicione sua primeira tarefa usando o formulário acima!</p>
+          <h3>No tasks here 📝</h3>
+          <p>Add your first task using the form above!</p>
         </div>
       )}
     </>
@@ -194,7 +193,6 @@ function AppContent() {
 
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<About />} />
           </Routes>
           <Footer />
         </div>

@@ -34,7 +34,7 @@ const Modal = ({ isOpen, onClose, title, message, type = 'info' }) => {
       <div className={`modal-content ${getTypeClass()}`} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <span className="modal-icon">{getIcon()}</span>
-          <h3 className="modal-title">{title || 'Atenção'}</h3>
+          <h3 className="modal-title">{title || 'Warning'}</h3>
         </div>
         <div className="modal-body">
           <p>{message}</p>

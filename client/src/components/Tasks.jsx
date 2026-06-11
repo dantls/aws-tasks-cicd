@@ -61,7 +61,7 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
         <div className="pagination">
           <div className="pagination-info">
             <span>
-              Mostrando {indexOfFirstTask + 1}-{Math.min(indexOfLastTask, tasks.length)} de {tasks.length} tarefas
+              Showing {indexOfFirstTask + 1}-{Math.min(indexOfLastTask, tasks.length)} of {tasks.length} tasks
             </span>
           </div>
           
@@ -70,7 +70,7 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
               className="pagination-btn"
               onClick={goToPrevious}
               disabled={currentPage === 1}
-              title="Página anterior"
+              title="Previous page"
             >
               ‹
             </button>
@@ -111,7 +111,7 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
               className="pagination-btn"
               onClick={goToNext}
               disabled={currentPage === totalPages}
-              title="Próxima página"
+              title="Next page"
             >
               ›
             </button>

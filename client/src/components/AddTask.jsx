@@ -17,7 +17,7 @@ const AddTask = ({ onAdd }) => {
 
     onAdd({ 
       titulo: titulo.trim(), 
-      dia_atividade: dia || new Date().toLocaleDateString('pt-BR'), 
+      dia_atividade: dia || new Date().toLocaleDateString('en-US'), 
       importante 
     });
 
@@ -29,20 +29,20 @@ const AddTask = ({ onAdd }) => {
   return (
     <form className="add-form" onSubmit={onSubmit}>
       <div className="form-control">
-        <label>Tarefa</label>
+        <label>Task</label>
         <input
           type="text"
-          placeholder="O que você precisa fazer?"
+          placeholder="What do you need to do?"
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
         />
       </div>
       
       <div className="form-control">
-        <label>Data/Prazo</label>
+        <label>Date/Deadline</label>
         <input
           type="text"
-          placeholder="Quando?"
+          placeholder="When?"
           value={dia}
           onChange={(e) => setDia(e.target.value)}
         />
@@ -55,7 +55,7 @@ const AddTask = ({ onAdd }) => {
           checked={importante}
           onChange={(e) => setImportante(e.target.checked)}
         />
-        <label htmlFor="importante">Importante</label>
+        <label htmlFor="importante">Important</label>
       </div>
       
       <button type="submit" className="btn btn-block success">
@@ -65,8 +65,8 @@ const AddTask = ({ onAdd }) => {
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        title="Campo obrigatório"
-        message="Por favor, adicione uma descrição para a tarefa"
+        title="Required field"
+        message="Please add a description for the task"
         type="warning"
       />
     </form>
