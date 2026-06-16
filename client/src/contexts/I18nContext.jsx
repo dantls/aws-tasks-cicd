@@ -17,6 +17,10 @@ const translations = {
     modalTitle: "Campo obrigatório",
     modalMessage: "Por favor, adicione uma descrição para a tarefa",
     footer: "App de Tarefas 2026",
+    noDate: "Sem data definida",
+    removeImportant: "Remover importância",
+    markImportant: "Marcar como importante",
+    delete: "Excluir",
   },
   en: {
     appTitle: "TASKS 2026 · High Availability",
@@ -34,6 +38,10 @@ const translations = {
     modalTitle: "Required field",
     modalMessage: "Please add a description for the task",
     footer: "Tasks App 2026",
+    noDate: "No date set",
+    removeImportant: "Remove important",
+    markImportant: "Mark as important",
+    delete: "Delete",
   },
 };
 

@@ -1,7 +1,9 @@
 import React from "react";
 import { FaTimes, FaStar, FaRegStar } from "react-icons/fa";
+import { useI18n } from "../contexts/I18nContext.jsx";
 
 const Task = ({ task, onDelete, onToggle }) => {
+  const { t } = useI18n();
   return (
     <div
       className={`task ${task.importante ? "reminder" : ""}`}
@@ -10,21 +12,21 @@ const Task = ({ task, onDelete, onToggle }) => {
       <div className="task-content">
         <h3>{task.titulo}</h3>
         <p className="task-date">
-          📅 {task.dia_atividade || "No date set"}
+          📅 {task.dia_atividade || t.noDate}
         </p>
       </div>
       <div className="task-actions">
         <button
           className="task-priority"
           onClick={() => onToggle(task.uuid)}
-          title={task.importante ? "Remove important" : "Mark as important"}
+          title={task.importante ? t.removeImportant : t.markImportant}
         >
           {task.importante ? <FaStar /> : <FaRegStar />}
         </button>
         <button
           className="task-delete"
           onClick={() => onDelete(task.uuid)}
-          title="Delete"
+          title={t.delete}
         >
           <FaTimes />
         </button>
