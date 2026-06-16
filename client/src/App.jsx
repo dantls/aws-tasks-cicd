@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext.jsx";
 import { LogProvider, useLog } from "./contexts/LogContext.jsx";
+import { I18nProvider, useI18n } from "./contexts/I18nContext.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Tasks from "./components/Tasks.jsx";
@@ -13,6 +14,7 @@ const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8080";
 function AppContent() {
   const [tasks, setTasks] = useState([]);
   const { logApiRequest, logApiResponse, logApiError, addLog } = useLog();
+  const { t } = useI18n();
 
   useEffect(() => {
     addLog('INFO', 'Application started', `API URL configured: ${apiUrl}`);
@@ -178,8 +180,8 @@ function AppContent() {
         />
       ) : (
         <div className="empty-state">
-          <h3>No tasks here 📝</h3>
-          <p>Add your first task using the form above!</p>
+          <h3>{t.noTasks}</h3>
+          <p>{t.noTasksHint}</p>
         </div>
       )}
     </>
@@ -204,11 +206,13 @@ function AppContent() {
 
 function App() {
   return (
-    <ThemeProvider>
-      <LogProvider>
-        <AppContent />
-      </LogProvider>
-    </ThemeProvider>
+    <I18nProvider>
+      <ThemeProvider>
+        <LogProvider>
+          <AppContent />
+        </LogProvider>
+      </ThemeProvider>
+    </I18nProvider>
   );
 }
 

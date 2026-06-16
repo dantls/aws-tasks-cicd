@@ -96,6 +96,23 @@ body {
   color: var(--text-primary);
 }
 
+.lang-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lang-toggle:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;

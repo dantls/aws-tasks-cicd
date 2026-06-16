@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Task from "./Task.jsx";
+import { useI18n } from "../contexts/I18nContext.jsx";
 
 const Tasks = ({ tasks, onDelete, onToggle }) => {
+  const { t } = useI18n();
   const [currentPage, setCurrentPage] = useState(1);
   const tasksPerPage = 5; // Mostrar 5 tarefas por página
 
@@ -61,7 +63,7 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
         <div className="pagination">
           <div className="pagination-info">
             <span>
-              Showing {indexOfFirstTask + 1}-{Math.min(indexOfLastTask, tasks.length)} of {tasks.length} tasks
+              {t.showing} {indexOfFirstTask + 1}-{Math.min(indexOfLastTask, tasks.length)} {t.of} {tasks.length} {t.tasks}
             </span>
           </div>
           
