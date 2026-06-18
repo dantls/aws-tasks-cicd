@@ -75,6 +75,28 @@ body {
   color: var(--text-primary);
 }
 
+.header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.environment-subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.environment-subtitle.production {
+  color: #22c55e;
+}
+
+.environment-subtitle.development {
+  color: #f59e0b;
+}
+
 .theme-controls {
   display: flex;
   align-items: center;

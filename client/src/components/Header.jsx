@@ -3,6 +3,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext.jsx";
 import { useI18n } from "../contexts/I18nContext.jsx";
 import VersionInfo from "./VersionInfo";
+import EnvironmentBanner from "./EnvironmentBanner";
 
 const Header = ({ title }) => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -10,7 +11,10 @@ const Header = ({ title }) => {
 
   return (
     <header className="header">
-      <h1>{title || t.appTitle}</h1>
+      <div className="header-title">
+        <h1>{title || t.appTitle}</h1>
+        <EnvironmentBanner />
+      </div>
       <div className="header-controls">
         <VersionInfo />
         <button
