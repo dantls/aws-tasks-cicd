@@ -3,22 +3,14 @@ import React, { useState, useEffect } from "react";
 const EnvironmentBanner = () => {
   const [label, setLabel] = useState(null);
 
-  const getApiUrl = () => {
-    if (import.meta.env.VITE_API_URL) {
-      return import.meta.env.VITE_API_URL;
-    }
-
-    if (window.location.port === "8080") {
-      return window.location.origin;
-    }
-
-    return "http://localhost:8080";
-  };
-
   useEffect(() => {
     const fetchAmbiente = async () => {
       try {
-        const response = await fetch(`${getApiUrl()}/api/ambiente`);
+        // Sempre relativo à própria origem: o mesmo container que serve o
+        // front-end também serve /api/ambiente, e cada ambiente (prod/dev)
+        // tem seu próprio container atrás do ALB. Usar VITE_API_URL aqui
+        // furaria o isolamento, pois ele é fixado no build da imagem.
+        const response = await fetch("/api/ambiente");
         if (response.ok) {
           const data = await response.json();
           setLabel(data.label);
