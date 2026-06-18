@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 const translations = {
   pt: {
-    appTitle: "TAREFAS 2026 · Alta Disponibilidade",
+    appTitle: "Tarefas 2026 · Alta Disponibilidade",
     task: "Tarefa",
     taskPlaceholder: "O que você precisa fazer?",
     date: "Data/Prazo",
@@ -23,7 +23,7 @@ const translations = {
     delete: "Excluir",
   },
   en: {
-    appTitle: "TASKS 2026 · High Availability",
+    appTitle: "Tasks 2026 · High Availability",
     task: "Task",
     taskPlaceholder: "What do you need to do?",
     date: "Date/Deadline",
